@@ -1,0 +1,135 @@
+
+//GENERAL
+%nomargin-padding {
+    margin:0;
+    padding:0;
+}
+%buttons{
+    border:thin solid #2d3142;
+    
+    
+    font-size:2rem;
+    font-weight: 500;
+
+    user-select: none;
+    
+    &:hover{
+        border: 1px solid white; 
+        color:white;
+    }
+    &:active{
+        position:relative;
+        top:1px;
+    }
+
+    p{
+        height:auto;
+        text-align:center;
+        
+    }
+}
+%screen{
+
+    padding:1rem;
+    text-align:end;
+    overflow-x:hidden;
+    font-family: 'Orbitron', sans-serif;
+    
+}
+
+html,body{
+    @extend %nomargin-padding;
+    width: 100vw;
+    height:100vh;
+    font-size: 12px;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle,#e9ecef,#6c757d );
+}
+
+
+//App
+
+#appContainer{
+   
+    height:70%;
+    width:50%;
+
+
+    display:flex;
+    justify-content:center;
+    align-items:center; 
+    padding:auto;
+    
+}
+
+.calculator{
+    height:100%;
+    width:100%;
+    max-width:30rem;
+    min-width:20rem;
+    max-height:40rem;
+    min-height: 20rem;
+    margin:auto;
+    display:grid;
+    
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 10rem repeat(5,1fr);
+    grid-gap:1px;
+    
+    grid-template-areas:'dplay dplay dplay dplay'
+                        'clear clear divide multiply'
+                        'seven eight nine add'
+                        'four five six subtract'
+                        'one two three equals'
+                        'decimal zero zero equals';
+    
+}
+
+ .number{
+    @extend %buttons;
+    background-color:#8e9797;
+} 
+.operator{
+    @extend %buttons;
+    background-color: #4f5d75;
+}
+.clear{
+    @extend %buttons;
+    background-color: brown;
+}
+#input{
+    background-color: #272935;
+    border: thin solid black;
+    display:flex;
+    flex-direction: column;
+    max-width:30rem;
+      
+    
+}
+#formulaBar{
+    @extend %screen;
+    color:orange;
+    height:40%;
+    
+    font-size:1.3rem; 
+    display:inline-block;   
+    word-wrap: break-word;
+    
+}
+#display{
+    @extend %screen;
+    color:white;
+    height:60%;
+    display:inline-block;   
+    word-wrap: break-word;
+    text-align:end;
+    font-size:2rem;    
+        
+
+}
